@@ -1,0 +1,60 @@
+# %%
+import numpy as np
+
+# %%
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# %%
+df = pd.read_csv("C:\\Users\\Rushikesh\\Downloads\\titanic_150.csv")
+
+# %%
+df.head()
+
+# %%
+df.describe()
+
+# %%
+df.info()
+
+# %%
+df = df.rename(columns={"Sex":"Gender"})
+
+# %%
+df.head()
+
+# %%
+# Average of Age column
+df["Age"].mean()
+
+# %%
+# bar chart graph
+plt.figure(figsize=(6,4))
+df["Gender"].value_counts().plot(kind="bar")
+plt.title("Distribution Of Gender")
+plt.xlabel("Gender")
+plt.ylabel("Counts")
+plt.show()
+
+# %%
+# Scatter plot
+plt.figure(figsize=(6,4))
+plt.scatter(df['Age'],df['Fare'],alpha=0.6)
+plt.title("Age vs Fare")
+plt.xlabel("Age")
+plt.ylabel("Fare")
+plt.show()
+
+
+# %%
+# heatmap
+numeric_df = df.select_dtypes(include=['number'])
+
+plt.figure(figsize=(8,6))
+sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Correlation Heatmap")
+plt.show()
+
+# %%
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    
+    <div class="container">
+    <h2>Sentiment Analysis Using TextBlob:</h2>
+    <form method = "POST" action="/">
+        <label for="text">Enter text:</label>
+        <textarea name="text" rows="3" cols="20" required>{{ text }}</textarea> <br> <br>
+        <button type="submit">Analyze</button>
+    </form>
+    
+    
+</div>
+        
+    
+</body>
+</html>
